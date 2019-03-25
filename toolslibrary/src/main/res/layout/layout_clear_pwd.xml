@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/ib_clearbtn"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:paddingLeft="@dimen/pwdedittext_padding"
+        android:paddingRight="@dimen/pwdedittext_padding"
+        android:src="@drawable/ic_clear" />
+
+    <ImageButton
+        android:id="@+id/ib_pwdbtn"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:paddingLeft="@dimen/pwdedittext_padding"
+        android:paddingRight="@dimen/pwdedittext_padding"
+        android:src="@drawable/ic_hide_pwd" />
+
+</LinearLayout>

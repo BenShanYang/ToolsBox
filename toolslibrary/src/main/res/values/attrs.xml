@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="iconPaddingLeft" format="dimension" />
+    <attr name="iconTextPaddingLeft" format="dimension" />
+    <attr name="maxLength" format="integer" />
+    <attr name="textSize" format="dimension" />
+    <attr name="textColor" format="reference|color" />
+    <attr name="textColorHint" format="reference|color" />
+    <attr name="hint" format="string" />
+    <attr name="icon" format="reference" />
+    <attr name="text" format="string" />
+    <attr name="borderWidth" format="dimension" />
+    <attr name="borderColor" format="color" />
+    <attr name="focusedBorderColor" format="color" />
+    <attr name="normalBorderColor" format="color" />
+    <attr name="digits" format="string" />
+    <attr name="cornerRadius" format="dimension" />
+    <attr name="isShowBorder" format="boolean" />
+
+    <!--自定义圆角按钮-->
+    <declare-styleable name="RoundedButton">
+        <attr name="cornerRadius" />
+        <attr name="isShowBorder" />
+        <attr name="borderWidth" />
+        <attr name="pressedBorderColor" />
+        <attr name="normalBorderColor" />
+        <attr name="pressedBackgroundColor" format="color" />
+        <attr name="normalBackgroundColor" format="color" />
+        <attr name="pressedTextColor" format="color" />
+        <attr name="normalTextColor" format="color" />
+    </declare-styleable>
+
+    <!--圆形或圆角图片-->
+    <declare-styleable name="RoundedImageView">
+        <attr name="isCircle" format="boolean" />
+        <attr name="isCoverSrc" format="boolean" />
+        <attr name="cornerRadius" />
+        <attr name="cornerTopLeftRadius" format="dimension" />
+        <attr name="cornerTopRightRadius" format="dimension" />
+        <attr name="cornerBottomLeftRadius" format="dimension" />
+        <attr name="cornerBottomRightRadius" format="dimension" />
+        <attr name="borderWidth" />
+        <attr name="borderColor" />
+        <attr name="innerBorderWidth" format="dimension" />
+        <attr name="innerBorderColor" format="color" />
+        <attr name="maskColor" format="color" />
+    </declare-styleable>
+
+    <!--带清除功能的输入框-->
+    <declare-styleable name="ClearEditText">
+        <attr name="iconPaddingLeft" />
+        <attr name="iconTextPaddingLeft" />
+        <attr name="clearIconPaddingLeft" format="dimension" />
+        <attr name="clearIconPaddingRight" format="dimension" />
+        <attr name="maxLength" />
+        <attr name="minLines" format="dimension" />
+        <attr name="maxLines" format="dimension" />
+        <attr name="textSize" />
+        <attr name="textColor" />
+        <attr name="text" />
+        <attr name="textColorHint" />
+        <attr name="hint" />
+
+        <attr name="borderWidth" />
+        <attr name="focusedBorderColor" />
+        <attr name="normalBorderColor" />
+        <attr name="digits" />
+
+        <attr name="icon" />
+        <attr name="iconClear" format="reference" />
+
+        <attr name="singleLine" format="boolean" />
+        <attr name="isShowBorder" />
+
+        <attr name="gravity" format="enum">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="top" value="2" />
+            <enum name="bottom" value="3" />
+            <enum name="center" value="4" />
+            <enum name="center_vertical" value="5" />
+            <enum name="left_center_vertical" value="6" />
+            <enum name="right_center_vertical" value="7" />
+            <enum name="center_horizontal" value="8" />
+            <enum name="top_center_horizontal" value="9" />
+            <enum name="bottom_center_horizontal" value="10" />
+        </attr>
+    </declare-styleable>
+
+    <!--密码输入框-->
+    <declare-styleable name="PasswordEditText">
+
+        <attr name="bottomBorderWidth" format="dimension" />
+        <attr name="iconPaddingLeft" />
+        <attr name="iconTextPaddingLeft" />
+        <attr name="iconTextPaddingRight" format="dimension" />
+        <attr name="textSize" />
+
+        <attr name="icon" />
+        <attr name="passwordSwitchSrc" format="reference" />
+        <attr name="passwordClearSrc" format="reference" />
+        <attr name="textColor" />
+        <attr name="textColorHint" />
+        <attr name="focusedBorderColor" />
+        <attr name="normalBorderColor" />
+
+        <attr name="text" />
+        <attr name="digits" />
+        <attr name="hint" />
+        <attr name="maxLength" />
+
+        <attr name="borderVisibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+            <enum name="gone" value="2" />
+        </attr>
+        <attr name="actionButtonType" format="enum">
+            <enum name="clear_password" value="0" />
+            <enum name="password_clear" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!--自定义标题栏-->
+    <declare-styleable name="TitleBarView">
+        <attr name="titleText" format="string" />
+        <attr name="buttonText" format="string" />
+
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="buttonTextSize" format="dimension" />
+        <attr name="buttonDrawablePadding" format="dimension" />
+        <attr name="borderWidth" />
+        <attr name="titleBarHeight" format="dimension" />
+
+        <attr name="borderColor" />
+        <attr name="titleBarBackgroundColor" format="color" />
+        <attr name="titleTextColor" format="reference|color" />
+        <attr name="buttonTextColor" format="reference|color" />
+        <attr name="buttonDrawableTop" format="reference" />
+        <attr name="imageButtonSrc" format="reference" />
+        <attr name="backImageSrc" format="reference" />
+
+        <attr name="buttonType" format="enum">
+            <enum name="image_button" value="0" />
+            <enum name="text_button" value="1" />
+        </attr>
+
+        <attr name="immersionStatusBar" format="boolean" />
+
+    </declare-styleable>
+
+</resources>

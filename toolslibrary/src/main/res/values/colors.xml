@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_333333">#333333</color>
+
+    <!--标题栏标题字体颜色-->
+    <color name="titlebar_title_textcolor">@color/color_333333</color>
+    <!--标题栏功能按钮字体颜色-->
+    <color name="titlebar_actionbtn_textcolor">@color/color_333333</color>
+    <!--密码输入框字体颜色-->
+    <color name="pwdedittext_textcolor">@color/color_333333</color>
+    <!--带清除功能的输入框的默认字体颜色-->
+    <color name="clearedittext_textcolor">@color/color_333333</color>
+</resources>

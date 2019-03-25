@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_titlebar"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/actionBarSize" >
+
+    <!--返回按钮-->
+    <ImageButton
+        android:id="@+id/ib_finish_activity"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_finish_activity"
+        android:background="@android:color/transparent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <!--标题-->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:textSize="@dimen/titlebar_title_fontsize"
+        android:textColor="@color/titlebar_title_textcolor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/ib_finish_activity"
+        app:layout_constraintRight_toLeftOf="@+id/fl_action_button"/>
+
+    <!--右侧功能按钮-->
+    <FrameLayout
+        android:id="@+id/fl_action_button"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <!--图片按钮-->
+        <ImageButton
+            android:id="@+id/ib_image_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:background="@android:color/transparent"/>
+        <!--文字按钮-->
+        <FrameLayout
+            android:id="@+id/fl_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/btn_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:background="@android:color/transparent"
+                android:textSize="@dimen/titlebar_actionbtn_fontsize"
+                android:textColor="@color/titlebar_actionbtn_textcolor"/>
+        </FrameLayout>
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

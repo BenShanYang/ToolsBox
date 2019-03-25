@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--标题栏字号-->
+    <dimen name="fontsize_18sp">18sp</dimen>
+    <!--小标题字号-->
+    <dimen name="fontsize_16sp">16sp</dimen>
+    <!--普通正文字体字号-->
+    <dimen name="fontsize_14sp">14sp</dimen>
+    <!--小文字字号-->
+    <dimen name="fontsize_12sp">12sp</dimen>
+    <!--标准内边距-->
+    <dimen name="padding">15dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+
+    <!--标题栏标题文字字号-->
+    <dimen name="titlebar_title_fontsize">@dimen/fontsize_18sp</dimen>
+    <!--标题栏功能按钮文字字号-->
+    <dimen name="titlebar_actionbtn_fontsize">@dimen/fontsize_14sp</dimen>
+    <!--密码输入框字体字号-->
+    <dimen name="pwdedittext_textsize">@dimen/fontsize_14sp</dimen>
+    <!--密码输入框左侧内边距-->
+    <dimen name="pwdedittext_paddintleft">@dimen/padding</dimen>
+    <!--密码输入框右侧内边距-->
+    <dimen name="pwdedittext_paddintright">@dimen/padding</dimen>
+    <!--右侧功能按钮的内边距-->
+    <dimen name="pwdedittext_padding">@dimen/space_8</dimen>
+    <!--带清除功能的输入框默认字体大小-->
+    <dimen name="clearedittext_textsize">@dimen/fontsize_14sp</dimen>
+
+</resources>
