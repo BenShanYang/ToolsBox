@@ -1,11 +1,9 @@
 apply plugin: 'com.android.library'
-apply plugin:'com.github.dcendents.android-maven'
+apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.ToolsBox'
+group='com.github.BenShanYang'
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 19
