@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tv_editabletextview_title" type="id"/>
+    <item name="et_editabletextview_content" type="id" />
+</resources>

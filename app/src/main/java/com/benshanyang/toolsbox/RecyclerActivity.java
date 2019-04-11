@@ -4,14 +4,12 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.benshanyang.toolslibrary.utils.GridDivider;
-import com.benshanyang.toolslibrary.utils.LinearDivider;
+import com.benshanyang.toolslibrary.helper.GridDivider;
 
 public class RecyclerActivity extends AppCompatActivity {
 

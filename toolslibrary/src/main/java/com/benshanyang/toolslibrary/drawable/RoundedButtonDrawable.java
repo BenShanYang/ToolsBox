@@ -12,6 +12,8 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.benshanyang.toolslibrary.callback.BorderDrawable;
+
 /**
  * 类描述: 圆角按钮的背景边框样式 </br>
  * 时间: 2019/3/22 13:52
@@ -20,13 +22,13 @@ import android.support.annotation.Nullable;
  * @version 1.0.0
  * @since
  */
-public class RoundedButtonDrawable extends Drawable {
+public class RoundedButtonDrawable extends Drawable implements BorderDrawable {
 
     private Paint paint;//画笔
     private float borderWidth = 0;//边框宽度
     private float width = 0f;//宽度
     private float height = 0f;//高度
-    private float radius = 0;//圆角矩形半径
+    private float radius = 0f;//圆角矩形半径
     private boolean isShowBorder = false;//默认不显示边框
     @ColorInt
     private int borderColor = Color.TRANSPARENT;//边框颜色

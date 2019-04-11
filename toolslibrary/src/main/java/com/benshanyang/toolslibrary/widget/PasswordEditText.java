@@ -35,6 +35,8 @@ import android.widget.LinearLayout;
 import com.benshanyang.toolslibrary.R;
 import com.benshanyang.toolslibrary.callback.TextWatchListener;
 
+import static android.util.TypedValue.COMPLEX_UNIT_PX;
+
 /**
  * 类描述: 密码输入框 </br>
  * 时间: 2019/3/20 10:51
@@ -58,6 +60,7 @@ public class PasswordEditText extends FrameLayout {
     private int normalBorderColor = 0xFFD5D5D5;//输入框未获取焦点时候的底边颜色
     private String pwdDigits = "";//密码输入框的过滤字符串
     private Integer maxLength = Integer.MAX_VALUE;//最大输入的密码位数
+    private InputFilter inputFilter;//过滤器
 
     public PasswordEditText(@NonNull Context context) {
         super(context);
@@ -206,8 +209,7 @@ public class PasswordEditText extends FrameLayout {
      * 设置按钮的点击事件
      */
     private void setListener() {
-        //设置过滤器
-        etPassword.setFilters(new InputFilter[]{new InputFilter() {
+        inputFilter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence charSequence, int i, int i1, Spanned spanned, int i2, int i3) {
                 if (!TextUtils.isEmpty(charSequence)) {
@@ -227,7 +229,9 @@ public class PasswordEditText extends FrameLayout {
                     return "";
                 }
             }
-        }, new InputFilter.LengthFilter(maxLength)});
+        };
+        //设置过滤器
+        etPassword.setFilters(new InputFilter[]{inputFilter, new InputFilter.LengthFilter(maxLength)});
 
         //清除内容按钮
         if (ibClear != null) {
@@ -445,7 +449,7 @@ public class PasswordEditText extends FrameLayout {
      */
     public void setTextSize(float textSize) {
         if (etPassword != null) {
-            etPassword.setTextSize(textSize);
+            etPassword.setTextSize(COMPLEX_UNIT_PX,textSize);
         }
     }
 
@@ -608,6 +612,9 @@ public class PasswordEditText extends FrameLayout {
      */
     public void setPWDMaxLength(int length) {
         this.maxLength = length;
+        if (etPassword != null) {
+            etPassword.setFilters(new InputFilter[]{inputFilter, new InputFilter.LengthFilter(maxLength)});
+        }
     }
 
     /**

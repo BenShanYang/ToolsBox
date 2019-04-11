@@ -3,6 +3,7 @@ package com.benshanyang.toolslibrary.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
+import android.util.DisplayMetrics;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -25,7 +26,7 @@ public class DeviceUtils {
      * @return
      */
     public static int getStatusBarHeight(Context context) {
-        if(isXiaomi()){
+        if (isXiaomi()) {
             int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
             if (resourceId > 0) {
                 return context.getResources().getDimensionPixelSize(resourceId);
@@ -37,7 +38,7 @@ public class DeviceUtils {
             Object obj = c.newInstance();
             Field field = c.getField("status_bar_height");
             int x = Integer.parseInt(field.get(obj).toString());
-            if(x > 0){
+            if (x > 0) {
                 return context.getResources().getDimensionPixelSize(x);
             }
         } catch (Exception e) {
@@ -86,5 +87,46 @@ public class DeviceUtils {
     public static boolean isXiaomi() {
         //https://dev.mi.com/doc/?p=254
         return Build.MANUFACTURER.toLowerCase().equals("xiaomi");
+    }
+
+    /**
+     * 获得设备屏幕密度
+     *
+     * @param context
+     * @return
+     */
+    public static float getDisplayMetrics(Activity context) {
+        DisplayMetrics dm = new DisplayMetrics();
+        context.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        return dm.density;
+    }
+
+
+    /**
+     * 获得屏幕高度
+     *
+     * @param context
+     * @return
+     */
+    public static int getScreenWidth(Context context) {
+        WindowManager wm = (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.widthPixels;
+    }
+
+    /**
+     * 获得屏幕宽度
+     *
+     * @param context
+     * @return
+     */
+    public static int getScreenHeight(Context context) {
+        WindowManager wm = (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.heightPixels;
     }
 }

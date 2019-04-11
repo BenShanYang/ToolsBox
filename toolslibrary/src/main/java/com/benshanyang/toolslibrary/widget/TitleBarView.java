@@ -27,6 +27,8 @@ import com.benshanyang.toolslibrary.utils.TextUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import static android.util.TypedValue.COMPLEX_UNIT_PX;
+
 /**
  * 类描述: 标题栏 </br>
  * 时间: 2019/3/20 10:50
@@ -271,7 +273,7 @@ public class TitleBarView extends FrameLayout {
      */
     public void setTitleTextSize(float size) {
         if (tvTitle != null) {
-            tvTitle.setTextSize(size);
+            tvTitle.setTextSize(COMPLEX_UNIT_PX,size);
         }
     }
 
@@ -304,7 +306,7 @@ public class TitleBarView extends FrameLayout {
      */
     public void setButtonTextSize(float size) {
         if (btnActionBtn != null) {
-            btnActionBtn.setTextSize(size);
+            btnActionBtn.setTextSize(COMPLEX_UNIT_PX,size);
         }
     }
 

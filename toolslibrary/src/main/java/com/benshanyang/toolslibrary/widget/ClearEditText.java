@@ -30,6 +30,8 @@ import com.benshanyang.toolslibrary.callback.TextWatchListener;
 import com.benshanyang.toolslibrary.utils.DensityUtils;
 import com.benshanyang.toolslibrary.utils.TextUtils;
 
+import static android.util.TypedValue.COMPLEX_UNIT_PX;
+
 /**
  * 类描述: 带清除功能的输入框 </br>
  * 时间: 2019/3/20 11:07
@@ -52,6 +54,7 @@ public class ClearEditText extends FrameLayout {
     private int normalBorderColor = 0xFFD5D5D5;//输入框未获取焦点时候的底边颜色
     private boolean isShowBorder = false;//是否显示底部分割线 默认不现实
 
+    private InputFilter inputFilter;//过滤器
     private TextWatchListener textWatchListener;//输入监听
     private OnFocusChangeListener onFocusChangeListener;//输入框的焦点改变监听
 
@@ -81,11 +84,11 @@ public class ClearEditText extends FrameLayout {
             int gravity = typedArray.getInt(R.styleable.ClearEditText_gravity, -1);//文字显示的位置
 
             float iconPaddingLeft = typedArray.getDimension(R.styleable.ClearEditText_iconPaddingLeft, 0);//icon和左边的距离
-            float iconTextPaddingLeft = typedArray.getDimension(R.styleable.ClearEditText_iconTextPaddingLeft, etInput.getPaddingLeft());//icon和文字见的距离
+            float iconTextPaddingLeft = typedArray.getDimension(R.styleable.ClearEditText_iconTextPaddingLeft, etInput.getPaddingLeft());//icon和文字间的距离
             float clearIconPaddingLeft = typedArray.getDimension(R.styleable.ClearEditText_clearIconPaddingLeft, ibClear.getPaddingLeft());//清除按钮的左边距
             float clearIconPaddingRight = typedArray.getDimension(R.styleable.ClearEditText_clearIconPaddingRight, ibClear.getPaddingLeft());//清除按钮的右边距
             float minLines = typedArray.getDimension(R.styleable.ClearEditText_minLines, -1);//最小输入行数
-            float maxLines = typedArray.getDimension(R.styleable.ClearEditText_maxLines, -1);//最大输入行数
+            int maxLines = typedArray.getInt(R.styleable.ClearEditText_maxLines, -1);//最大输入行数
             float textSize = typedArray.getDimension(R.styleable.ClearEditText_textSize, 0);//文字的大小
 
             ColorStateList textColor = typedArray.getColorStateList(R.styleable.ClearEditText_textColor);//设置密码字体颜色
@@ -130,7 +133,7 @@ public class ClearEditText extends FrameLayout {
                 }
                 //设置最大行数
                 if (maxLines > 0) {
-                    etInput.setMaxLines((int) maxLines);
+                    etInput.setMaxLines(maxLines);
                 }
                 //是否只显示一行
                 etInput.setSingleLine(singleLine);
@@ -231,6 +234,28 @@ public class ClearEditText extends FrameLayout {
      * 初始化监听事件
      */
     private void initListener() {
+        inputFilter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence charSequence, int i, int i1, Spanned spanned, int i2, int i3) {
+                if (!TextUtils.isEmpty(charSequence)) {
+                    String inputStr = charSequence.toString();
+                    if (TextUtils.isEmpty(digits)) {
+                        //如果没有匹配条件就不去匹配
+                        return null;
+                    } else if (inputStr.matches(digits)) {
+                        //设置了匹配条件 且符合匹配条件
+                        return null;
+                    } else {
+                        //设置了匹配条件但不符合匹配条件
+                        return "";
+                    }
+                } else {
+                    //输入的为空则过滤掉
+                    return "";
+                }
+            }
+        };
+
         //清空输入框
         if (ibClear != null) {
             ibClear.setOnClickListener(new OnClickListener() {
@@ -243,27 +268,7 @@ public class ClearEditText extends FrameLayout {
 
         if (etInput != null) {
             //设置过滤器
-            etInput.setFilters(new InputFilter[]{new InputFilter() {
-                @Override
-                public CharSequence filter(CharSequence charSequence, int i, int i1, Spanned spanned, int i2, int i3) {
-                    if (!TextUtils.isEmpty(charSequence)) {
-                        String inputStr = charSequence.toString();
-                        if (TextUtils.isEmpty(digits)) {
-                            //如果没有匹配条件就不去匹配
-                            return null;
-                        } else if (inputStr.matches(digits)) {
-                            //设置了匹配条件 且符合匹配条件
-                            return null;
-                        } else {
-                            //设置了匹配条件但不符合匹配条件
-                            return "";
-                        }
-                    } else {
-                        //输入的为空则过滤掉
-                        return "";
-                    }
-                }
-            }, new InputFilter.LengthFilter(maxLength)});
+            etInput.setFilters(new InputFilter[]{inputFilter, new InputFilter.LengthFilter(maxLength)});
 
             etInput.setOnFocusChangeListener(new OnFocusChangeListener() {
                 @Override
@@ -465,7 +470,7 @@ public class ClearEditText extends FrameLayout {
      */
     public void setTextSize(float fontSize) {
         if (etInput != null) {
-            etInput.setTextSize(fontSize);
+            etInput.setTextSize(COMPLEX_UNIT_PX,fontSize);
         }
     }
 
@@ -648,6 +653,9 @@ public class ClearEditText extends FrameLayout {
      */
     public void setMaxLength(int maxLength) {
         this.maxLength = maxLength;
+        if (etInput != null) {
+            etInput.setFilters(new InputFilter[]{inputFilter, new InputFilter.LengthFilter(maxLength)});
+        }
     }
 
 }

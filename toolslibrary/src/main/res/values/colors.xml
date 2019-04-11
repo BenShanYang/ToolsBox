@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color_333333">#333333</color>
+    <color name="color_D5D5D5">#D5D5D5</color>
 
     <!--标题栏标题字体颜色-->
     <color name="titlebar_title_textcolor">@color/color_333333</color>
@@ -10,4 +11,19 @@
     <color name="pwdedittext_textcolor">@color/color_333333</color>
     <!--带清除功能的输入框的默认字体颜色-->
     <color name="clearedittext_textcolor">@color/color_333333</color>
+    <!--分割线颜色-->
+    <color name="divider_color">@color/color_D5D5D5</color>
+
+    <!--Toast默认文字颜色-->
+    <color name="default_textcolor">#FFFFFF</color>
+    <!--Toast错误弹窗的颜色-->
+    <color name="error_color">#FDD50000</color>
+    <!--Toast信息弹窗颜色-->
+    <color name="info_color">#FD3F51B5</color>
+    <!--Toast成功弹窗的颜色-->
+    <color name="success_color">#FD388E3C</color>
+    <!--Toast警告弹窗的颜色-->
+    <color name="warning_color">#FDFFA900</color>
+    <!--Toast常规弹窗的颜色-->
+    <color name="normal_color">#DD353A3E</color>
 </resources>

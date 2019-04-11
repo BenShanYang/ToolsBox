@@ -73,10 +73,23 @@ public class TextUtils {
      * @param gravity      位置
      */
     public static void setDrawable(TextView textView, CharSequence charSequence, int resId, @Gravity int gravity) {
+        setDrawable(textView, charSequence, resId, 0, gravity);
+    }
+
+    /**
+     * 为TextView设置Drawable图片
+     *
+     * @param textView
+     * @param charSequence    设置的文字
+     * @param resId           图片的资源id
+     * @param drawablePadding 文字和Icon的距离
+     * @param gravity         位置
+     */
+    public static void setDrawable(TextView textView, CharSequence charSequence, int resId, int drawablePadding, @Gravity int gravity) {
         if (textView != null) {
             Context context = textView.getContext();
             Drawable imgDrawable = context.getResources().getDrawable(resId);//获取资源图片
-            setDrawable(textView, imgDrawable, 0, gravity);
+            setDrawable(textView, imgDrawable, drawablePadding, gravity);
             textView.setText(isEmpty(charSequence) ? "" : charSequence);
         }
     }
@@ -90,8 +103,21 @@ public class TextUtils {
      * @param gravity      位置
      */
     public static void setDrawable(TextView textView, CharSequence charSequence, Drawable imgDrawable, @Gravity int gravity) {
-        if (textView != null && imgDrawable != null) {
-            setDrawable(textView, imgDrawable, 0, gravity);
+        setDrawable(textView, charSequence, imgDrawable, 0, gravity);
+    }
+
+    /**
+     * 为TextView设置Drawable图片
+     *
+     * @param textView
+     * @param charSequence    设置的文字
+     * @param imgDrawable     图片
+     * @param drawablePadding 文字和Icon的距离
+     * @param gravity         位置
+     */
+    public static void setDrawable(TextView textView, CharSequence charSequence, Drawable imgDrawable, int drawablePadding, @Gravity int gravity) {
+        if (textView != null) {
+            setDrawable(textView, imgDrawable, drawablePadding, gravity);
             textView.setText(isEmpty(charSequence) ? "" : charSequence);
         }
     }
@@ -144,7 +170,7 @@ public class TextUtils {
      * @param gravity         位置
      */
     public static void setDrawable(TextView textView, Drawable imgDrawable, int drawablePadding, @Gravity int gravity) {
-        if (textView != null && imgDrawable != null) {
+        if (textView != null) {
             switch (gravity) {
                 case Gravity.LEFT:
                     //左侧icon
@@ -163,6 +189,39 @@ public class TextUtils {
                     textView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, imgDrawable);
                     break;
             }
+            textView.setCompoundDrawablePadding(drawablePadding);
+        }
+    }
+
+    /**
+     * 为TextView设置Drawable图片
+     *
+     * @param textView
+     * @param drawablePadding 图片和文字的间距
+     * @param leftDrawable    左图片
+     * @param topDrawable     上图片
+     * @param rightDrawable   右图片
+     * @param bottomDrawable  下图片
+     */
+    public static void setDrawable(TextView textView, int drawablePadding, Drawable leftDrawable, Drawable topDrawable, Drawable rightDrawable, Drawable bottomDrawable) {
+        setDrawable(textView, "", drawablePadding, leftDrawable, topDrawable, rightDrawable, bottomDrawable);
+    }
+
+    /**
+     * 为TextView设置Drawable图片
+     *
+     * @param textView
+     * @param charSequence    文字内容
+     * @param drawablePadding 图片和文字的间距
+     * @param leftDrawable    左图片
+     * @param topDrawable     上图片
+     * @param rightDrawable   右图片
+     * @param bottomDrawable  下图片
+     */
+    public static void setDrawable(TextView textView, CharSequence charSequence, int drawablePadding, Drawable leftDrawable, Drawable topDrawable, Drawable rightDrawable, Drawable bottomDrawable) {
+        if (textView != null) {
+            textView.setText(isEmpty(charSequence) ? "" : charSequence);
+            textView.setCompoundDrawablesWithIntrinsicBounds(leftDrawable, topDrawable, rightDrawable, bottomDrawable);
             textView.setCompoundDrawablePadding(drawablePadding);
         }
     }

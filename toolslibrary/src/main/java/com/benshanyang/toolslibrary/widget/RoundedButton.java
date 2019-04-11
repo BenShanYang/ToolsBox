@@ -3,6 +3,7 @@ package com.benshanyang.toolslibrary.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
@@ -10,6 +11,7 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 
 import com.benshanyang.toolslibrary.R;
+import com.benshanyang.toolslibrary.callback.BorderDrawable;
 import com.benshanyang.toolslibrary.drawable.RoundedButtonDrawable;
 
 /**
@@ -33,7 +35,7 @@ public class RoundedButton extends AppCompatTextView {
     private int width = 0;//控件宽
     private int height = 0;//空间高
     private boolean isShowBorder = false;//是否显示边框
-    private RoundedButtonDrawable drawable = null;//背景样式
+    private BorderDrawable drawable = null;//背景样式
 
     public RoundedButton(Context context) {
         super(context);
@@ -67,7 +69,7 @@ public class RoundedButton extends AppCompatTextView {
         }
 
         drawable = new RoundedButtonDrawable();
-        setBackgroundDrawable(drawable);
+        setBackgroundDrawable((Drawable)drawable);
         if(isShowBorder){
             drawable.isShowBorder(isShowBorder);
         }
