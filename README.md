@@ -6,6 +6,7 @@
 	}
 		
 	dependencies {
-	        implementation 'com.github.BenShanYang:ToolsBox:1.0.3'
+	        implementation 'com.github.BenShanYang:ToolsBox:1.0.4'
 	}
+
 
