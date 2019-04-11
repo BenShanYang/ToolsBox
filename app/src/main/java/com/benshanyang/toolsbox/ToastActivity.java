@@ -67,7 +67,7 @@ public class ToastActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ToastUtils.Config.getInstance()
-                        .setToastTypeface(Typeface.createFromAsset(getAssets(), "PCap Terminal.otf"))
+                        .setToastTypeface(Typeface.createFromAsset(getAssets(), "simkai.ttf"))
                         .allowQueue(false)
                         .apply();
                 ToastUtils.custom(ToastActivity.this, R.string.custom_message, getResources().getDrawable(R.drawable.laptop512),
