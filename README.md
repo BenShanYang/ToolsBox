@@ -1,12 +1,12 @@
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://www.jitpack.io' }
-		}
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 		
-	dependencies {
-	        implementation 'com.github.BenShanYang:ToolsBox:1.0.4'
-	}
+dependencies {
+	implementation 'com.github.BenShanYang:ToolsBox:1.0.5'
+}
 
 
