@@ -14,6 +14,7 @@
     <attr name="borderColor" format="color" />
     <attr name="focusedBorderColor" format="color" />
     <attr name="normalBorderColor" format="color" />
+    <attr name="pressedBorderColor" format="color" />
     <attr name="digits" format="string" />
     <attr name="cornerRadius" format="dimension" />
     <attr name="isShowBorder" format="boolean" />
@@ -173,7 +174,7 @@
         <attr name="restartText" format="string" />
         <attr name="unit" format="string" />
         <attr name="timePrefix" format="string" />
-        <attr name="textsize" />
+        <attr name="textSize" />
     </declare-styleable>
 
     <!--自定义圆角按钮-->
@@ -212,8 +213,8 @@
         <attr name="clearIconPaddingLeft" format="dimension" />
         <attr name="clearIconPaddingRight" format="dimension" />
         <attr name="maxLength" />
-        <attr name="minLines"/>
-        <attr name="maxLines"/>
+        <attr name="minLines" />
+        <attr name="maxLines" />
         <attr name="textSize" />
         <attr name="textColor" />
         <attr name="text" />
@@ -228,7 +229,7 @@
         <attr name="icon" />
         <attr name="iconClear" />
 
-        <attr name="singleLine"/>
+        <attr name="singleLine" />
         <attr name="isShowBorder" />
 
         <attr name="gravity" format="enum">
@@ -305,6 +306,17 @@
 
         <attr name="immersionStatusBar" format="boolean" />
 
+    </declare-styleable>
+
+    <!--自定义文字横向跑马灯控件-->
+    <declare-styleable name="MarqueeView">
+        <attr name="android:text" />
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="marqueeView_shadowColor" format="color" />
+        <attr name="marqueeView_isShowClose" format="boolean" />
+        <attr name="marqueeView_noticeSrc" format="reference" />
+        <attr name="marqueeView_closeSrc" format="reference" />
     </declare-styleable>
 
 </resources>

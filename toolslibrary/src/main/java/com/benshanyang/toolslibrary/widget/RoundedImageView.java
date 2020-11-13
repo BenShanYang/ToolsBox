@@ -28,7 +28,7 @@ import com.benshanyang.toolslibrary.utils.DensityUtils;
  * @version 1.0.0
  * @since
  */
-public class RoundedImageView extends AppCompatImageView {
+public class  RoundedImageView extends AppCompatImageView {
     private boolean isCoverSrc; // border、innerBorder是否覆盖图片
     private boolean isCircle; // 是否显示为圆形，如果为圆形则设置的corner无效
     private int borderWidth; // 边框宽度

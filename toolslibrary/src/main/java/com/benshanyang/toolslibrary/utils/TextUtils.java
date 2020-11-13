@@ -1,7 +1,16 @@
 package com.benshanyang.toolslibrary.utils;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.style.CharacterStyle;
 import android.widget.TextView;
 
 import com.benshanyang.toolslibrary.constant.Gravity;
@@ -40,6 +49,42 @@ public class TextUtils {
             return isEmpty(str);
         }
     }
+
+    /**
+     * 设置字体粗细
+     *
+     * @param textView  显示文字的控件
+     * @param text      要显示的文字
+     * @param thickness 文字的粗细程度
+     */
+    public static void setText(@NonNull TextView textView, CharSequence text, float thickness) {
+        setText(textView, text, thickness, textView.getCurrentTextColor());
+    }
+
+    /**
+     * 设置字体粗细
+     *
+     * @param textView  显示文字的控件
+     * @param text      要显示的文字
+     * @param thickness 文字的粗细程度
+     * @param color     文字的颜色
+     */
+    public static void setText(@NonNull TextView textView, CharSequence text, final float thickness, @ColorInt final int color) {
+        if (textView != null && !isEmpty(text)) {
+            SpannableStringBuilder spannableString = new SpannableStringBuilder(text);
+            spannableString.setSpan(new CharacterStyle() {
+                @Override
+                public void updateDrawState(TextPaint textPaint) {
+                    //tp.setFakeBoldText(true);//一种伪粗体效果，比原字体加粗的效果弱一点
+                    textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+                    textPaint.setColor(color);//字体颜色
+                    textPaint.setStrokeWidth(thickness > 0 ? thickness : 0);//控制字体加粗的程度
+                }
+            }, 0, isEmpty(text) ? 0 : text.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+            textView.setText(spannableString);
+        }
+    }
+
 
     /**
      * 判断两个字符串是否相等

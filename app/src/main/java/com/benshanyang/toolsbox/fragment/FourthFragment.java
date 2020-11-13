@@ -1,25 +1,29 @@
-package com.benshanyang.toolsbox;
+package com.benshanyang.toolsbox.fragment;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.benshanyang.toolsbox.R;
 import com.benshanyang.toolslibrary.utils.DateUtils;
 import com.benshanyang.toolslibrary.utils.SingleClickUtils;
-import com.benshanyang.toolslibrary.utils.ToastUtils;
 
-public class SingleClickActivity extends AppCompatActivity {
+public class FourthFragment extends Fragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_click);
-        initListener();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_fourth, container, false);
     }
 
-    private void initListener() {
-        SingleClickUtils.onClick(this,
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        SingleClickUtils.onClick(view,
                 new int[]{R.id.btn_3, R.id.btn_4, R.id.btn_5},
                 10000,
                 new View.OnClickListener() {
@@ -27,34 +31,33 @@ public class SingleClickActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         String date = DateUtils.formatTimeStamp(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss");
                         switch (v.getId()) {
-                             case R.id.btn_3:
-                                ((Button) findViewById(v.getId())).setText("btn3_" + date);
+                            case R.id.btn_3:
+                                ((Button) v).setText("btn3_" + date);
                                 break;
                             case R.id.btn_4:
-                                ((Button) findViewById(v.getId())).setText("btn4_" + date);
+                                ((Button) v).setText("btn4_" + date);
                                 break;
                             case R.id.btn_5:
-                                ((Button) findViewById(v.getId())).setText("btn5_" + date);
+                                ((Button) v).setText("btn5_" + date);
                                 break;
                         }
                     }
                 });
 
-        SingleClickUtils.onClick(this, R.id.btn_1, 2000, new View.OnClickListener() {
+        SingleClickUtils.onClick(view, R.id.btn_1, 2000, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String date = DateUtils.formatTimeStamp(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss");
-                ((Button) findViewById(v.getId())).setText("btn1_" + date);
+                ((Button) v).setText("btn1_" + date);
             }
         });
 
-        SingleClickUtils.onClick(findViewById(R.id.btn_2), new View.OnClickListener() {
+        SingleClickUtils.onClick(view.findViewById(R.id.btn_2), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String date = DateUtils.formatTimeStamp(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss");
-                ((Button) findViewById(v.getId())).setText("btn2_" + date);
+                ((Button) v).setText("btn2_" + date);
             }
         });
-
     }
 }

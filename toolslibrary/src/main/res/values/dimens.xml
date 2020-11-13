@@ -10,7 +10,6 @@
     <!--小文字字号-->
     <dimen name="fontsize_12sp">12sp</dimen>
     <!--标准内边距-->
-    <dimen name="padding">15dp</dimen>
     <dimen name="space_8">8dp</dimen>
 
     <!--标题栏标题文字字号-->

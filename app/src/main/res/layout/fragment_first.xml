@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    android:padding="16dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".fragment.FirstFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.benshanyang.toolslibrary.widget.ExpandTextView
+            android:id="@+id/expand_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="#FF999999"
+            android:textSize="14sp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.benshanyang.toolslibrary.widget.SimpleExpandTextView
+            android:id="@+id/simple_expand_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:maxLines="3"
+            android:text="最新的版本是只支持AndroidX的。从XUI 1.0.5以后，是支持AndroidX的版本，1.0.5之前的版本是支持Support的版本。这里我建议使用最新版本（AndroidX版本），因为之前的版本可能存在一些兼容性的bug，并在后面的版本被逐一修复。如果你依然想使用Support版本的话，要么你就使用1.0.5之前的版本（存在一些低版本兼容性的bug），要么你就clone一下当前最新版本的源码，将其改为Support版本本地导入依赖使用。"
+            android:textColor="#FF999999"
+            android:textSize="14sp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/expand_text_view" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/expand_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="展开"
+            app:layout_constraintLeft_toLeftOf="@+id/simple_expand_text_view"
+            app:layout_constraintRight_toRightOf="@+id/simple_expand_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/simple_expand_text_view" />
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="请输入内容"
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_iconfont"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/expand_button"
+            app:layout_constraintVertical_bias="1" />
+
+        <TextView
+            android:id="@+id/tv_iconfont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

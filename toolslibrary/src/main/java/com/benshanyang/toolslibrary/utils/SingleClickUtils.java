@@ -24,7 +24,7 @@ public class SingleClickUtils {
      * @param ids    控件的id数组
      * @param o      点击事件的回调接口
      */
-    public static void onClick(ViewGroup parent, @IdRes int[] ids, View.OnClickListener o) {
+    public static void onClick(View parent, @IdRes int[] ids, View.OnClickListener o) {
         for (int i = 0; i < ids.length; i++) {
             onClick(parent, ids[i], o);
         }
@@ -37,7 +37,7 @@ public class SingleClickUtils {
      * @param id     控件的id
      * @param o      点击事件的回调接口
      */
-    public static void onClick(ViewGroup parent, @IdRes int id, View.OnClickListener o) {
+    public static void onClick(View parent, @IdRes int id, View.OnClickListener o) {
         View view = parent.findViewById(id);
         onClick(view, o);
     }
@@ -50,7 +50,7 @@ public class SingleClickUtils {
      * @param interval 两次点击的时间间隔(毫秒)
      * @param o        点击事件的回调接口
      */
-    public static void onClick(ViewGroup parent, @IdRes int[] ids, long interval, View.OnClickListener o) {
+    public static void onClick(View parent, @IdRes int[] ids, long interval, View.OnClickListener o) {
         for (int i = 0; i < ids.length; i++) {
             onClick(parent, ids[i], interval, o);
         }
@@ -64,7 +64,7 @@ public class SingleClickUtils {
      * @param interval 两次点击的时间间隔(毫秒)
      * @param o        点击事件的回调接口
      */
-    public static void onClick(ViewGroup parent, @IdRes int id, long interval, View.OnClickListener o) {
+    public static void onClick(View parent, @IdRes int id, long interval, View.OnClickListener o) {
         View view = parent.findViewById(id);
         onClick(view, interval, o);
     }

@@ -89,8 +89,8 @@ public class CountDownButton extends FrameLayout {
                     unit = typedArray.getString(attr);//计时单位
                 } else if (attr == R.styleable.CountDownButton_timePrefix) {
                     timePrefix = typedArray.getString(attr);//计时前缀
-                } else if (attr == R.styleable.CountDownButton_textsize) {
-                    textSize = typedArray.getDimension(attr, 0f);
+                } else if (attr == R.styleable.CountDownButton_textSize) {
+                    textSize = typedArray.getDimension(attr, 0f);//文字字号
                 }
             }
             typedArray.recycle();

@@ -1,319 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minHeight="?actionBarSize"
+            android:padding="@dimen/appbar_padding"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:tabIndicatorFullWidth="false"
+            app:tabMode="scrollable" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        <com.benshanyang.toolslibrary.widget.TitleBarView
-            android:id="@+id/title_bar_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            app:borderColor="#000000"
-            app:borderWidth="2px"
-            app:buttonDrawablePadding="0dp"
-            app:buttonDrawableTop="@drawable/ic_shopping"
-            app:buttonText="购物车"
-            app:buttonTextColor="@color/colorPrimary"
-            app:buttonTextSize="10sp"
-            app:buttonType="text_button"
-            app:immersionStatusBar="false"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:titleBarBackgroundColor="#ffcccc"
-            app:titleBarHeight="?android:attr/actionBarSize"
-            app:titleText="标题"
-            app:titleTextColor="@color/colorPrimary"
-            app:titleTextSize="18sp" />
-
-        <com.benshanyang.toolslibrary.widget.PasswordEditText
-            android:id="@+id/pwdet"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:actionButtonType="password_clear"
-            app:borderVisibility="visible"
-            app:bottomBorderWidth="1dp"
-            app:digits="^[a-zA-Z0-9_@#%\*]+$"
-            app:focusedBorderColor="@color/colorPrimary"
-            app:hint="请输入密码"
-            app:iconPaddingLeft="8dp"
-            app:iconTextPaddingLeft="8dp"
-            app:iconTextPaddingRight="5dp"
-            app:normalBorderColor="#D5D5D5"
-            app:textColor="#ff0000"
-            app:textColorHint="#999999" />
-
-        <com.benshanyang.toolslibrary.widget.ClearEditText
-            android:id="@+id/cet"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:borderWidth="2px"
-            app:clearIconPaddingLeft="10dp"
-            app:clearIconPaddingRight="10dp"
-            app:digits="^[a-z0-9]+$"
-            app:gravity="left_center_vertical"
-            app:hint="请输入内容"
-            app:icon="@drawable/ic_shopping"
-            app:iconPaddingLeft="8dp"
-            app:iconTextPaddingLeft="8dp"
-            app:isShowBorder="true"
-            app:singleLine="false"
-            app:textColor="@color/colorPrimary"
-            app:textColorHint="#999999"
-            app:textSize="14sp" />
-
-        <com.benshanyang.toolslibrary.widget.SimpleClearEditText
-            android:id="@+id/simpleclearedittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:backgroundColor="@color/c_FFFFCC"
-            app:borderWidth="1dp"
-            app:focusedBorderColor="#ff0000"
-            app:hint="请输入.."
-            app:iconClear="@drawable/icon_clear"
-            app:isShowBorder="true"
-            app:normalBorderColor="#D5D5D5"
-            app:textColor="@color/color_D5D5D5"
-            app:textSize="@dimen/fontsize_12sp" />
-
-        <com.benshanyang.toolslibrary.widget.BorderTextView
-            android:id="@+id/bordertextview1"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:clickable="true"
-            android:drawableLeft="@drawable/ic_shopping"
-            android:drawableRight="@drawable/ic_arrow_right"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="点我试试"
-            app:borderColor="#D5D5D5"
-            app:bottomBorderLeftSpace="40dp"
-            app:bottomBorderNormalColor="#D5D5D5"
-            app:bottomBorderPressedColor="#FF0000"
-            app:bottomBorderRightSpace="0dp"
-            app:bottomBorderWidth="1dp"
-            app:topBorderLeftSpace="0dp"
-            app:topBorderNormalColor="#D5D5D5"
-            app:topBorderPressedColor="#FF0000"
-            app:topBorderRightSpace="0dp"
-            app:topBorderWidth="1dp" />
-
-        <com.benshanyang.toolslibrary.widget.BorderTextView
-            android:id="@+id/bordertextview2"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:drawableLeft="@drawable/ic_shopping"
-            android:drawableRight="@drawable/ic_arrow_right"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="点我试试"
-            app:bottomBorderLeftSpace="0dp"
-            app:bottomBorderNormalColor="#D5D5D5"
-            app:bottomBorderPressedColor="#FF0000"
-            app:bottomBorderRightSpace="0dp"
-            app:bottomBorderWidth="1dp"
-            app:topBorderLeftSpace="0dp"
-            app:topBorderNormalColor="#D5D5D5"
-            app:topBorderPressedColor="#FF0000"
-            app:topBorderRightSpace="0dp"
-            app:topBorderWidth="0dp" />
-
-        <com.benshanyang.toolslibrary.widget.SelectableTextView
-            android:id="@+id/select_textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:clickable="true"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp" />
-
-        <com.benshanyang.toolslibrary.widget.EditableTextView
-            android:id="@+id/edittextview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:minHeight="45dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            app:backgroundColor="#ffcccc"
-            app:bottomBorderColor="#0000ff"
-            app:bottomBorderLeftSpace="10dp"
-            app:bottomBorderRightSpace="10dp"
-            app:bottomBorderWidth="1dp"
-            app:contentText="埃里克森对士大夫萨芬撒旦飞洒地方撒旦飞洒地方撒旦飞洒地方阿斯蒂芬撒地方撒旦发射点发阿斯顿发顺丰按时发撒地方阿斯蒂芬撒地方士大夫萨芬撒旦发射点发撒旦发射点发撒地方撒地方撒地方撒地方撒地方撒地方萨芬阿斯弗安抚撒旦但是发"
-            app:contentTextColor="#666666"
-            app:contentTextSize="14sp"
-            app:digits="^[a-z0-9]+$"
-            app:editable="true"
-            app:hint="请输入名称"
-            app:maxLength="20"
-            app:textColorHint="#999999"
-            app:titleContentSpace="20dp"
-            app:titleDrawablePadding="10dp"
-            app:titleIcon="@drawable/ic_shopping"
-            app:titleText="用户名称"
-            app:titleTextColor="#333333"
-            app:titleTextSize="14sp"
-            app:topBorderColor="#ff0000"
-            app:topBorderLeftSpace="5dp"
-            app:topBorderRightSpace="5dp"
-            app:topBorderWidth="1dp" />
-
-        <com.benshanyang.toolslibrary.widget.SearchBarView
-            android:id="@+id/searchbarview"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="18dp"
-            android:paddingRight="5dp"
-            app:borderColor="#D5D5D5"
-            app:backgroundColor="#F1F1F1"
-            app:borderWidth="1dp"
-            app:normalBackgroundColor="#F1F1F1"
-            app:focusedBackgroundColor="#FFFF00"
-            app:normalBorderColor="#FFCCCC"
-            app:focusedBorderColor="#FF0000"
-            app:cornerRadius="15dp"
-            app:isShowBorder="true"
-            app:hint="请输入要搜索的内容..."
-            app:textColorHint="#999999"
-            app:textColor="#333333"
-            app:textSize="14sp"
-            app:text=""
-            app:actionIcon="@drawable/ic_camera"
-            app:editIcon="@drawable/ic_search"
-            app:editIconPadding="10dp"/>
-
-        <com.benshanyang.toolslibrary.widget.RoundedImageView
-            android:id="@+id/rounded_imageview"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:src="@mipmap/cat"
-            app:borderColor="#008B45"
-            app:borderWidth="2dp"
-            app:cornerRadius="20dp"
-            app:innerBorderColor="#FF7F24"
-            app:innerBorderWidth="4dp"
-            app:isCircle="true"
-            app:maskColor="#99FFFFFF" />
-
-        <com.benshanyang.toolslibrary.widget.RoundedImageView
-            android:id="@+id/nice_iv1"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:src="@mipmap/cat"
-            app:borderColor="#FF7F24"
-            app:borderWidth="2dp"
-            app:cornerRadius="20dp"
-            app:innerBorderColor="#0000FF"
-            app:innerBorderWidth="2dp" />
-
-        <com.benshanyang.toolslibrary.widget.RoundedImageView
-            android:id="@+id/nice_iv2"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:src="@mipmap/cat"
-            app:borderColor="#FF7F24"
-            app:borderWidth="2dp"
-            app:cornerBottomLeftRadius="10dp"
-            app:cornerBottomRightRadius="60dp"
-            app:cornerTopLeftRadius="60dp"
-            app:cornerTopRightRadius="10dp"
-            app:maskColor="#33FFFF00" />
-
-        <com.benshanyang.toolslibrary.widget.RoundedButton
-            android:id="@+id/btn"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:clickable="true"
-            android:text="点我试试"
-            app:borderWidth="1dp"
-            app:cornerRadius="10dp"
-            app:isShowBorder="true"
-            app:normalBackgroundColor="#F3F3F3"
-            app:normalBorderColor="#D5D5D5"
-            app:pressedBackgroundColor="#FFFF00"
-            app:pressedBorderColor="#FF0000" />
-
-        <com.benshanyang.toolslibrary.widget.RoundedButton
-            android:id="@+id/btn_toast"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:clickable="true"
-            android:text="自定义Toast"
-            app:borderWidth="1dp"
-            app:cornerRadius="10dp"
-            app:isShowBorder="true"
-            app:normalBackgroundColor="#F3F3F3"
-            app:normalBorderColor="#D5D5D5"
-            app:pressedBackgroundColor="#FFFF00"
-            app:pressedBorderColor="#FF0000" />
-
-        <com.benshanyang.toolslibrary.widget.RoundedButton
-            android:id="@+id/btn_singleclick"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:clickable="true"
-            android:text="按钮去重复点击"
-            app:borderWidth="1dp"
-            app:cornerRadius="10dp"
-            app:isShowBorder="true"
-            app:normalBackgroundColor="#F3F3F3"
-            app:normalBorderColor="#D5D5D5"
-            app:pressedBackgroundColor="#FFFF00"
-            app:pressedBorderColor="#FF0000" />
-
-        <com.benshanyang.toolslibrary.widget.CountDownButton
-            android:id="@+id/countdownbutton"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            app:duration="60000"
-            app:interval="1000"
-            app:normalBackground="@drawable/normal_bg"
-            app:normalTextColor="@android:color/white"
-            app:restartText="重新发送"
-            app:startText="发送验证码"
-            app:timePrefix="剩下"
-            app:timingBackground="@drawable/timing_bg"
-            app:timingTextColor="#666666"
-            app:unit="s" />
-
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
