@@ -3,10 +3,12 @@ package com.benshanyang.toolslibrary.callback;
 import android.support.v4.widget.NestedScrollView;
 
 /**
- * @ClassName: OnScrollChangeListener
- * @Description: NestedScrollView滚动监听器
- * @Author: YangKuan
- * @Date: 2020/11/12 14:17
+ * 类描述: NestedScrollView滚动监听器 </br>
+ * 时间: 2020/11/12 14:17
+ *
+ * @author YangKuan
+ * @version 1.0.0
+ * @since
  */
 public abstract class OnScrollChangeListener implements NestedScrollView.OnScrollChangeListener {
 
