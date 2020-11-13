@@ -1,27 +1,30 @@
-package com.benshanyang.toolsbox;
+package com.benshanyang.toolsbox.fragment;
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.benshanyang.toolsbox.R;
+import com.benshanyang.toolslibrary.base.BaseParentFragment;
 import com.benshanyang.toolslibrary.callback.TextWatchListener;
 import com.benshanyang.toolslibrary.constant.Border;
 import com.benshanyang.toolslibrary.constant.PWDActionType;
-import com.benshanyang.toolslibrary.utils.DensityUtils;
 import com.benshanyang.toolslibrary.utils.Logger;
-import com.benshanyang.toolslibrary.utils.ResUtils;
 import com.benshanyang.toolslibrary.utils.TextUtils;
 import com.benshanyang.toolslibrary.widget.BorderTextView;
 import com.benshanyang.toolslibrary.widget.ClearEditText;
 import com.benshanyang.toolslibrary.widget.CountDownButton;
 import com.benshanyang.toolslibrary.widget.EditableTextView;
+import com.benshanyang.toolslibrary.widget.MarqueeView;
 import com.benshanyang.toolslibrary.widget.PasswordEditText;
 import com.benshanyang.toolslibrary.widget.RoundedButton;
 import com.benshanyang.toolslibrary.widget.SearchBarView;
@@ -29,67 +32,108 @@ import com.benshanyang.toolslibrary.widget.SelectableTextView;
 import com.benshanyang.toolslibrary.widget.SimpleClearEditText;
 import com.benshanyang.toolslibrary.widget.TitleBarView;
 
-import static android.util.TypedValue.COMPLEX_UNIT_PX;
+public class FifthFragment extends BaseParentFragment {
 
-/**
- * 类描述: 测试类 </br>
- * 时间: 2019/3/22 15:21
- *
- * @author YangKuan
- * @version
- * @since
- */
-public class MainActivity extends AppCompatActivity {
-
-    View.OnClickListener o = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(MainActivity.this, "搜索", Toast.LENGTH_SHORT).show();
-        }
-    };
+    MarqueeView marqueeView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_fifth, container, false);
+    }
+
+    @Override
+    public void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {
+          /*
+        //指纹
+        FingerprintHelper.Builder builder = new FingerprintHelper.Builder(MainActivity.this)
+                .callback(new FingerprintCallback() {
+                    @Override
+                    public void onHmUnavailable() {
+                        //硬件不支持
+                    }
+
+                    @Override
+                    public void onNoneEnrolled() {
+                        //未添加指纹
+                    }
+
+                    @Override
+                    public void fingerprintOk() {
+                        //设备支持指纹并且已经录入指纹并且设备也打开了指纹识别
+                    }
+
+                    @Override
+                    public void onSuccee() {
+                        //指纹识别成功
+                    }
+
+                    @Override
+                    public void onFailed(int errorCode, CharSequence errString) {
+                        //指纹识别失败
+                        if (errorCode == FingerprintCallback.DISABLED) {
+                            //处于指纹禁用期
+                            //showToast("处于指纹禁用期");
+                        } else if (errorCode == FingerprintCallback.VALIDATION_FAILED) {
+                            //多次验证指纹失败被系统禁用指纹一段时间
+                            //showToast("多次验证指纹失败被系统禁用指纹一段时间");
+                        } else if (errorCode == FingerprintCallback.FINGERPRINT_READER_DISABLED) {
+                            //尝试次数过多，指纹传感器已停用
+                            //showToast("尝试次数过多，指纹传感器已停用");
+                        } else if (errorCode == FingerprintCallback.FINGERPRINT_CANCEL) {
+                            //指纹操作已取消
+                            //showToast("指纹操作已取消");
+                        } else if (errorCode == FingerprintCallback.FINGERPRINT_FAILED) {
+                            //没有调用系统的回调函数
+                            //showToast("没有调用系统的回调函数");
+                        }
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        //取消指纹识别
+                    }
+                });
+        builder.build();*/
+
+
         //标题栏
-        TitleBarView titleBarView = findViewById(R.id.title_bar_view);
-        titleBarView.setTitleBarHeight(DensityUtils.dp2px(this,50));
+        TitleBarView titleBarView = view.findViewById(R.id.title_bar_view);
+        titleBarView.setTitleBarHeight(dp2px(getContext(), 50));
         titleBarView.setBackgroundColor(0xFFFFCCCC);
         titleBarView.setTitleBarBackgroundColor(Color.WHITE);
         titleBarView.setTitle("标题");
         titleBarView.setTitleTextColor(0xFF0000FF);
-        titleBarView.setTitleTextSize(DensityUtils.sp2px(MainActivity.this,18));
-        titleBarView.setBottomBorder(DensityUtils.dp2px(this,2),0xFF000000);
+        titleBarView.setTitleTextSize(sp2px(getContext(), 18));
+        titleBarView.setBottomBorder(dp2px(getContext(), 2), 0xFF000000);
         titleBarView.setImmersionStateBar(true);//一定要在setBottomBorder()方法之后调用否则底部边线会被覆盖掉
         titleBarView.setButtonText("购物车");
         titleBarView.setButtonType(TitleBarView.Type.IMAGE_BUTTON);
         titleBarView.setImageButtonSrc(R.drawable.ic_shopping);
-        titleBarView.setButtonDrawable(R.drawable.ic_shopping,0);
+        titleBarView.setButtonDrawable(R.drawable.ic_shopping, 0);
         titleBarView.setButtonTextColor(0xFFFFFF00);
         titleBarView.setButtonTextSize(10);
 
         titleBarView.setOnFinishListener(new TitleBarView.OnFinishListener() {
             @Override
             public void onFinish(View view) {
-                Toast.makeText(MainActivity.this,"关闭当前页面",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "关闭当前页面", Toast.LENGTH_SHORT).show();
             }
         });
 
         titleBarView.setOnActionButtonClickListener(new TitleBarView.OnActionButtonClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"右侧按钮被点击了",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "右侧按钮被点击了", Toast.LENGTH_SHORT).show();
             }
         });
 
         //密码输入框
-        PasswordEditText pwdET = findViewById(R.id.pwdet);
-        pwdET.setIconTextPaddingLeft(DensityUtils.dp2px(this,8));
-        pwdET.setIconTextPaddingRight(DensityUtils.dp2px(this,5));
-        pwdET.setIconPaddingLeft(DensityUtils.dp2px(this,8));
+        PasswordEditText pwdET = view.findViewById(R.id.pwdet);
+        pwdET.setIconTextPaddingLeft(dp2px(getContext(), 8));
+        pwdET.setIconTextPaddingRight(dp2px(getContext(), 5));
+        pwdET.setIconPaddingLeft(dp2px(getContext(), 8));
         pwdET.setActionButtonType(PWDActionType.PASSWORD_CLEAR);
-        pwdET.setBottomBorder(DensityUtils.dp2px(this,1),0xFFFFCCCC , 0xFFD5D5D5);
+        pwdET.setBottomBorder(dp2px(getContext(), 1), 0xFFFFCCCC, 0xFFD5D5D5);
         pwdET.setPWDDigits("^[a-zA-Z0-9_@#%\\*]+$");
         pwdET.setPWDMaxLength(8);
         pwdET.setBorderVisibility(Border.VISIBLE);
@@ -99,9 +143,9 @@ public class MainActivity extends AppCompatActivity {
         pwdET.setPWDEditTextFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
+                if (hasFocus) {
                     //获取焦点
-                }else{
+                } else {
                     //失去焦点
                 }
             }
@@ -123,27 +167,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ClearEditText clearEditText = findViewById(R.id.cet);
+        ClearEditText clearEditText = view.findViewById(R.id.cet);
         clearEditText.setIcon(R.drawable.ic_shopping);
-        clearEditText.setIconPaddingLeft(DensityUtils.dp2px(this,8));
-        clearEditText.setIconTextPaddingLeft(DensityUtils.dp2px(this,8));
-        clearEditText.setClearIconPaddingLeft(DensityUtils.dp2px(this,10));
-        clearEditText.setClearIconPaddingRight(DensityUtils.dp2px(this,10));
+        clearEditText.setIconPaddingLeft(dp2px(getContext(), 8));
+        clearEditText.setIconTextPaddingLeft(dp2px(getContext(), 8));
+        clearEditText.setClearIconPaddingLeft(dp2px(getContext(), 10));
+        clearEditText.setClearIconPaddingRight(dp2px(getContext(), 10));
         clearEditText.setTextColor(0xFF0000FF);
         clearEditText.setHintTextColor(0xFF999999);
         clearEditText.setHint("请输入内容");
         clearEditText.setSingleLine(true);
-        clearEditText.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
+        clearEditText.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
         clearEditText.setDigits("^[a-z0-9]+$");
         clearEditText.setMaxLength(8);
         clearEditText.isShowBorder(true);
-        clearEditText.setBottomBorder(2,getResources().getColor(R.color.colorAccent),getResources().getColor(R.color.colorPrimary));
+        clearEditText.setBottomBorder(2, getResources().getColor(R.color.colorAccent), getResources().getColor(R.color.colorPrimary));
         clearEditText.setClearEditTextFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
+                if (hasFocus) {
                     //获取焦点
-                }else{
+                } else {
                     //失去焦点
                 }
             }
@@ -166,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        RoundedButton btn = findViewById(R.id.btn);
+        RoundedButton btn = view.findViewById(R.id.btn);
         btn.setCornerRadius(60);
         btn.setBorderWidth(2);
         btn.setShowBorder(true);
@@ -175,16 +219,10 @@ public class MainActivity extends AppCompatActivity {
         btn.setPressedBorderColor(0xFFFF0000);
         btn.setNormalBorderColor(0xFFD5D5D5);
         btn.setPressedTextColor(0xFFFFFFFF);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,RecyclerActivity.class));
-            }
-        });
 
-        final CountDownButton countDownButton = findViewById(R.id.countdownbutton);
-        countDownButton.setNormalBackground(ResUtils.getDrawable(this,R.drawable.normal_bg));
-        countDownButton.setTimingBackground(ResUtils.getDrawable(this,R.drawable.timing_bg));
+        final CountDownButton countDownButton = view.findViewById(R.id.countdownbutton);
+        countDownButton.setNormalBackground(getResDrawable(R.drawable.normal_bg));
+        countDownButton.setTimingBackground(getResDrawable(R.drawable.timing_bg));
         countDownButton.setNormalTextColor(0xFFFFFFFF);
         countDownButton.setTimingTextColor(0xFF666666);
         countDownButton.setDuration(60000);
@@ -206,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        SimpleClearEditText simpleClearEditText = findViewById(R.id.simpleclearedittext);
+        SimpleClearEditText simpleClearEditText = view.findViewById(R.id.simpleclearedittext);
         simpleClearEditText.setClearIcon(R.drawable.icon_clear);
         simpleClearEditText.setTextSize(28);
         simpleClearEditText.setTextColor(0xFFFF0000);
@@ -222,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
         simpleClearEditText.setGravity(Gravity.LEFT);
         simpleClearEditText.setMaxLength(5);
 
-        BorderTextView borderTextView1 = findViewById(R.id.bordertextview1);
+        BorderTextView borderTextView1 = view.findViewById(R.id.bordertextview1);
         //borderTextView1.setBorderColor(0xFFD5D5D5);
         borderTextView1.setTopBorderLeftSpace(0);
         borderTextView1.setTopBorderRightSpace(0);
@@ -237,18 +275,18 @@ public class MainActivity extends AppCompatActivity {
         borderTextView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"BorderTextView被点击了",Toast.LENGTH_SHORT).show();
+                showToast("BorderTextView被点击了");
             }
         });
 
-        SelectableTextView selectableTextView = findViewById(R.id.select_textview);
-        selectableTextView.setTitleIcon(R.drawable.ic_shopping,30);
-        selectableTextView.setContentIcon(R.drawable.ic_shopping,R.drawable.ic_shopping,30);
+        SelectableTextView selectableTextView = view.findViewById(R.id.select_textview);
+        selectableTextView.setTitleIcon(R.drawable.ic_shopping, 30);
+        selectableTextView.setContentIcon(R.drawable.ic_shopping, R.drawable.ic_shopping, 30);
         selectableTextView.setTitleContentSpace(40);
         selectableTextView.setTitleTextSize(36);
         selectableTextView.setContentTextSize(28);
-        selectableTextView.setTitleTextColor(ResUtils.getColor(this,R.color.color_333333));
-        selectableTextView.setContentTextColor(ResUtils.getColor(this,R.color.colorPrimaryDark));
+        selectableTextView.setTitleTextColor(getResColor(R.color.color_333333));
+        selectableTextView.setContentTextColor(getResColor(R.color.colorPrimaryDark));
         selectableTextView.setTitle("性别");
         selectableTextView.setContent("男阿斯蒂芬撒犯得上地方阿斯弗啊十分大师傅士大夫士大夫萨芬阿三发射点发射点发射点发撒沙发上士大夫萨芬随风倒士大夫士大夫阿斯蒂芬撒地方撒旦飞洒地方士大夫树都发");
         selectableTextView.setSingleLine(false);
@@ -266,11 +304,11 @@ public class MainActivity extends AppCompatActivity {
         selectableTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"SelectableTextView被点击了",Toast.LENGTH_SHORT).show();
+                showToast("SelectableTextView被点击了");
             }
         });
 
-        EditableTextView editableTextView = findViewById(R.id.edittextview);
+        EditableTextView editableTextView = view.findViewById(R.id.edittextview);
         editableTextView.setEditable(true);
         editableTextView.setBackgroundColor(0xFFFFCCCC);
         editableTextView.setTopBorderColor(0xFFFF0000);
@@ -290,11 +328,12 @@ public class MainActivity extends AppCompatActivity {
         editableTextView.setContentTextSize(28);
         editableTextView.setTextColorHint(0xFF999999);
         editableTextView.setTitleTextColor(0xFF333333);
-        editableTextView.setTitleIcon(R.drawable.ic_shopping,20);
+        editableTextView.setTitleIcon(R.drawable.ic_shopping, 20);
         editableTextView.setTitleTextSize(28);
         editableTextView.setTitleText("用户名称");
 
-        SearchBarView searchBarView = findViewById(R.id.searchbarview);
+        marqueeView = view.findViewById(R.id.marquee_view);
+        SearchBarView searchBarView = view.findViewById(R.id.searchbarview);
         searchBarView.setBorderWidth(2);
         searchBarView.setNormalBackgroundColor(0xFFF1F1F1);
         searchBarView.setFocusedBackgroundColor(0xFFFFFF00);
@@ -308,11 +347,11 @@ public class MainActivity extends AppCompatActivity {
         searchBarView.setTextSize(28);
         searchBarView.setShowActionButton(true);
         searchBarView.setActionIcon(R.drawable.ic_camera);
-        searchBarView.setEditIcon(R.drawable.ic_search,20);
+        searchBarView.setEditIcon(R.drawable.ic_search, 20);
         searchBarView.setOnTextChangedListener(new SearchBarView.OnTextChangedListener() {
             @Override
             public void onChanged(Editable s, final EditText editText, ImageButton imageButton) {
-                if(!TextUtils.isEmpty(s)){
+                if (!TextUtils.isEmpty(s)) {
                     imageButton.setImageResource(R.drawable.ic_clear);
                     imageButton.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -320,26 +359,25 @@ public class MainActivity extends AppCompatActivity {
                             editText.setText("");
                         }
                     });
-                }else{
+                } else {
                     imageButton.setImageResource(R.drawable.ic_camera);
                     imageButton.setOnClickListener(o);
                 }
+                marqueeView.setText(s);
             }
-        },o);
+        }, o);
 
-        findViewById(R.id.btn_toast).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,ToastActivity.class));
-            }
-        });
-
-        findViewById(R.id.btn_singleclick).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,SingleClickActivity.class));
-            }
-        });
     }
 
+    @Override
+    public void setListener(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+    }
+
+    View.OnClickListener o = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(getContext(), "搜索", Toast.LENGTH_SHORT).show();
+        }
+    };
 }
