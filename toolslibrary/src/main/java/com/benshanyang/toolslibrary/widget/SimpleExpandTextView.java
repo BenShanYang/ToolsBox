@@ -14,10 +14,10 @@ import android.util.Log;
 import android.widget.TextView;
 
 /**
- * @ClassName: SimpleExpandTextView
- * @Description: java类作用描述
- * @Author: mayn
- * @Date: 2020/11/11 14:53
+ * @ClassName: ExpandTextView
+ * @Description: 可展开折叠的文字展示控件
+ * @Author: YangKuan
+ * @Date: 2020/11/11 14:54
  */
 public class SimpleExpandTextView extends AppCompatTextView {
 

@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 /**
  * @ClassName: ExpandTextView
- * @Description: 可展开折叠的文字展示控件 https://blog.csdn.net/fshj1106/article/details/106208749/
+ * @Description: 可展开折叠的文字展示控件
  * @Author: YangKuan
  * @Date: 2020/11/11 14:54
  */
